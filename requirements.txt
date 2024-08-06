@@ -1,0 +1,5 @@
+elevenlabs~=1.6.1
+streamlit~=1.37.0
+langflow~=1.0.14
+python-dotenv~=1.0.1
+requests~=2.32.3
