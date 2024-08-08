@@ -122,6 +122,11 @@ col1, col2 = st.columns([3, 1])
 with col1:
     st.title("Sugar Bear (Deadpool)")
     st.subheader("By Souradeep Banerjee")
+    st.markdown('''
+[![GitHub Stars](https://img.shields.io/github/stars/Souradeep1101/SugarBear.svg?style=social&label=Star&maxAge=2592000)](https://github.com/Souradeep1101/SugarBear/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Souradeep1101/SugarBear.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/Souradeep1101/SugarBear/network/members)[![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-red.svg)](https://www.youtube.com/channel/UCv4ctQjbqZ0tq8lxchYkm2g)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg)](https://www.buymeacoffee.com/souradeep1101)
+    ''')
     st.link_button(label='GitHub', url='https://github.com/Souradeep1101/')
 
 with col2:

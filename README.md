@@ -99,6 +99,7 @@ SugarBear/
 │       └── Sugar Bear (Deadpool).json
 ├── images/
 │   ├── deadpool-dance-bye-bye-bye.gif
+│   ├── deadpool-dance-bye-bye-bye-bye.gif
 │   └── deadpool_heart_love.gif
 ├── .gitignore
 ├── main.py
