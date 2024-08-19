@@ -1,7 +1,7 @@
 # app/backend/controller.py
 
 from app.backend.services.elevenlabs_service import text_to_speech_file
-from app.backend.services.langflow_service import get_response
+from app.backend.services.langflow_service import get_response_from_api
 
 
 def process_user_input(user_input: str, user: str = '') -> tuple:
@@ -19,7 +19,7 @@ def process_user_input(user_input: str, user: str = '') -> tuple:
         tuple: A tuple containing the response text and the path to the generated audio file.
     """
     # Generate response text using LangFlow service
-    response_text = get_response(user_input, user)
+    response_text = get_response_from_api(user_input, user)
 
     # Convert the response text to an audio file using ElevenLabs service
     audio_file = text_to_speech_file(response_text)

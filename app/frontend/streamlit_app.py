@@ -132,6 +132,7 @@ with col1:
 with col2:
     st.image('images/deadpool-dance-bye-bye-bye.gif', use_column_width=True)
 # Authentication menu in the sidebar
+st.divider()
 st.sidebar.header("Authentication Settings")
 
 with st.sidebar.form(key='auth_form'):
@@ -199,10 +200,10 @@ else:
             role, content = message["role"], message["content"]
             with st.chat_message(role):
                 st.markdown(content)
-            if "audio_path" in message:
-                with open(message["audio_path"], "rb") as audio_file:
-                    audio_bytes = audio_file.read()
-                st.audio(audio_bytes, format="audio/mp3", autoplay=False)
+                if "audio_path" in message:
+                    with open(message["audio_path"], "rb") as audio_file:
+                        audio_bytes = audio_file.read()
+                    st.audio(audio_bytes, format="audio/mp3", autoplay=False)
 
     # User input
     if "user_name" in st.session_state and (prompt := st.chat_input("What is up?")):
@@ -218,15 +219,15 @@ else:
                 with st.spinner("Generating response..."):
                     response_text, audio_file_path = process_user_input(prompt, st.session_state.user_name)
                     st.markdown(response_text)
-            st.session_state.messages.append(
-                {"role": "assistant", "content": response_text, "audio_path": audio_file_path})
-            store_message(st.session_state.user_name, "assistant", response_text, audio_file_path)
+                st.session_state.messages.append(
+                    {"role": "assistant", "content": response_text, "audio_path": audio_file_path})
+                store_message(st.session_state.user_name, "assistant", response_text, audio_file_path)
 
-            # Autoplay audio only the first time it is generated
-            if audio_file_path:
-                try:
-                    with open(audio_file_path, "rb") as audio_file:
-                        audio_bytes = audio_file.read()
-                    st.audio(audio_bytes, format="audio/mp3", autoplay=True)
-                except Exception as e:
-                    st.error(f"Error loading audio: {str(e)}")
+                # Autoplay audio only the first time it is generated
+                if audio_file_path:
+                    try:
+                        with open(audio_file_path, "rb") as audio_file:
+                            audio_bytes = audio_file.read()
+                        st.audio(audio_bytes, format="audio/mp3", autoplay=True)
+                    except Exception as e:
+                        st.error(f"Error loading audio: {str(e)}")
